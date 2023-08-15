@@ -1,0 +1,36 @@
+/* Your existing CSS */
+
+.categories {
+    width: 100%;
+    max-width: min-content;
+    overflow: scroll; 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .category {
+    white-space: nowrap; 
+    background: rgba(55, 55, 55, 0.785);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.73);
+    cursor: pointer;
+  }
+  
+  .category:hover {
+    background: rgb(55, 55, 55);
+    color: white;
+  }
+  
+  .category:active,.selected {
+    background: white;
+    color: black;
+  }
+  

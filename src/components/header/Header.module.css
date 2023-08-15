@@ -1,0 +1,125 @@
+.header {
+  width: 100%;
+  height: 55px;
+  background-color: rgb(18, 18, 18);
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.hamburger {
+  width: 20px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 170px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.logo_img {
+  width: 70px;
+  height: 100%;
+  object-fit: cover;
+}
+.logo_text {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+.search {
+  width: 600px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+
+  /* gap: 1rem; */
+}
+.search_input {
+  background-color: rgb(33, 33, 33);
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border: none;
+  color: rgb(194, 191, 191);
+  outline: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  font-size: 1.2rem;
+  /* font-weight: bold; */
+}
+.search_input:focus {
+  border: 1px solid rgb(10, 77, 141);
+}
+.search_button {
+  width: 50px;
+  height: 100%;
+  background-color: rgb(33, 33, 33);
+  border: none;
+  outline: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_button:hover {
+  background-color: rgb(57, 59, 57);
+}
+.useless {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 300px;
+}
+.useless_icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(33, 33, 33);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.profile_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Media query for screens with max width 570px */
+@media (max-width: 570px) {
+  .header {
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    height: auto;
+  }
+  .logo,.useless{
+    display: none;
+  }
+  .search {
+    width: 100%;
+  }
+}
