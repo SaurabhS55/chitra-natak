@@ -13,6 +13,7 @@
     "@firebase/app": "^0.9.15",
     "@firebase/auth": "^1.1.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "firebase": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

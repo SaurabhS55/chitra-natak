@@ -5,7 +5,10 @@
     padding: 1rem;
     cursor: pointer;
     flex-wrap: wrap;
-    width: 350px;
+    /* width: 350px; */
+  }
+  .video:hover {
+    transform: scale(1.01);
   }
   .vd{
     display: flex;
@@ -14,7 +17,10 @@
     padding: 1rem;
     cursor: pointer;
     flex-wrap: wrap;
-    width: 450px;
+    width: 400px;
+  }
+  .vd:hover {
+    transform: scale(1.01);
   }
   .thumbnail {
     position: relative;
@@ -23,7 +29,7 @@
   
   .thumbnail img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 5px;
   }
   
@@ -36,6 +42,8 @@
     border-radius: 3px;
     color: white;
     font-size: 0.8rem;
+    z-index: 5;
+    font-weight: bold;
   }
   
   .description {
