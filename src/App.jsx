@@ -1,13 +1,11 @@
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import HomePage from './pages/HomePage';
+import 'react-loading-skeleton/dist/skeleton.css'
+import { SkeletonTheme } from 'react-loading-skeleton';
 function App() {
-  const router = createBrowserRouter([
-    { path: '/', element:<HomePage/> },
-  ]);
   return (
-    <>
-    <RouterProvider router={router}/> 
-    </>
+    <SkeletonTheme baseColor='#525151' highlightColor='#d0d0d0'>
+      <HomePage/>
+    </SkeletonTheme>
   )
 }
 

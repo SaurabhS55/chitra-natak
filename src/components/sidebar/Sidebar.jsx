@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Sidebar.module.css";
 import { GoHomeFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import {
   MdSubscriptions,
   MdExitToApp,
@@ -13,9 +14,10 @@ import {
 import { useSelector} from "react-redux";
 const Sidebar = (props) => {
   const slider=useSelector(state=>state.slider.slider);
+  const navigate=useNavigate();
   return (
     <div className={classes.sidebar} style={{width:(slider)?"":"5%"}}>
-      <div className={classes.sidebar_item} style={{justifyContent:(slider)?"":"center"}}>
+      <div className={classes.sidebar_item} style={{justifyContent:(slider)?"":"center"}} onClick={()=>navigate('/')} >
         <GoHomeFill size={25}/>
         {slider&&<span className={classes.sidebar_text}>Home</span>}
       </div>

@@ -7,11 +7,29 @@ import logo from "../../assets/app_logo.png";
 import { MdApps } from "react-icons/md";
 import { useSelector,useDispatch } from "react-redux";
 import { toggleSlider } from "../../store/SliderSlice";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getSearchPageVideos } from "../../store/reducers/getSearchPageVideos";
+import { clearVideos,changeSearchTerm, clearSearchTerm } from "../../store/YoutubeSlice";
 const Header = (props) => {
+  const location=useLocation();
+  const navigate=useNavigate();
   const slider=useSelector(state=>state.slider.slider);
+  const searchTerm=useSelector(state=>state.youtube.searchTerm);
+  // console.log(searchTerm)
   const dispatch=useDispatch();
   const handleSidebar = () => {
     dispatch(toggleSlider());
+  }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if(location.pathname!=="/search"){
+      // console.log(searchTerm)
+      navigate("/search")
+    }
+    else{
+      dispatch(clearVideos());
+      dispatch(getSearchPageVideos(false))
+    }
   }
   return (
     <div className={classes.header}>
@@ -24,13 +42,15 @@ const Header = (props) => {
           <span className={classes.logo_text}>CN</span>
         </div>
       </div>
-      <form className={classes.search}>
+      <form className={classes.search} onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search"
           className={classes.search_input}
+          value={searchTerm}
+          onChange={(e) => dispatch(changeSearchTerm(e.target.value))}
         />
-        <button type="submit" className={classes.search_button}>
+        <button type="submit" className={classes.search_button} onClick={()=>dispatch(clearVideos())}>
           <BiSearch size={22} color="white" />
         </button>
       </form>
