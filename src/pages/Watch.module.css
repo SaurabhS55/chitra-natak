@@ -1,0 +1,107 @@
+/* watch.module.css */
+
+.watch_container {
+    max-height: 100vh;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  
+  .video_container {
+    display: flex;
+    height: 92.5vh;
+    width: 100%;
+  }
+  
+  .video_content {
+    flex: 1;
+    gap: 10px 5px;
+    padding: 7px;
+    margin: 0 20px 0 0;
+    overflow: auto;
+    width: 70%;
+
+  }
+  
+  .video_iframe {
+    width: 950px;
+    height: 530px;
+  }
+  
+  .video_title {
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+  
+  .video_info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1px;
+    font-size: 0.875rem;
+    color: #888;
+  }
+  
+  .video_icons {
+    display: flex;
+    gap: 4px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  
+  .video_icon {
+    display: flex;
+    gap: 1px;
+    cursor: pointer;
+  }
+  
+  .channel_info {
+    display: flex;
+    gap: 5px;
+    margin-right: 5px;
+    margin-top: 4px;
+  }
+  
+  .channel_image {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+  }
+  
+  .channel_name {
+    font-size: 0.875rem;
+  }
+  
+  .channel_subscribers {
+    font-size: 0.75rem;
+    color: #888;
+  }
+  
+  .subscribe_button {
+    text-transform: uppercase;
+    background-color: #f00;
+    border: none;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 0.875rem;
+  }
+  
+  .video_description {
+    font-size: 0.875rem;
+    width: 91.67%;
+  }
+  
+  .show_more_button {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  
+  .recommended_videos {
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: white;
+    width: 30%;
+  }
+  

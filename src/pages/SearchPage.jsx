@@ -34,6 +34,7 @@ const SearchPage = () => {
           loader={<div style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%",height:"100%"}}><TailSpin/></div>}
           height={650} 
         >
+          {/* <TailSpin/> */}
         <div className={(slider)?classes.video_container1:classes.video_container}>
             {
                 videos.map((item, index) => (

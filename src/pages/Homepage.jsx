@@ -6,6 +6,7 @@ import NotFound from "../components/Error/NotFound";
 import classes from "./Homepage.module.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SearchPage from "./SearchPage";
+import Watch from "./Watch";
 const HomePage = () => {
   const [sidebar, handleSidebarState] = useState(false);
   const router = createBrowserRouter([
@@ -36,6 +37,15 @@ const HomePage = () => {
         <div className={classes.main_container}>
           <Sidebar sidebar={sidebar} />
           <NotFound/>
+        </div>
+      </>
+    ), },
+    { path: "/watch/:id", element: (
+      <>
+        <Header handleSidebarState={handleSidebarState} />
+        <div className={classes.main_container}>
+          <Sidebar sidebar={sidebar} />
+          <Watch/>
         </div>
       </>
     ), }

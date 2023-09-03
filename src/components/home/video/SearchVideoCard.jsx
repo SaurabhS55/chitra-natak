@@ -1,8 +1,10 @@
 import React from 'react'
 import classes from './SearchVideoCard.module.css'
+import { Link } from 'react-router-dom'
 const SearchVideoCard = (props) => {
   const t=props.item.videoTitle;
   return (
+    <Link to={`/watch/${props.item.videoId}`} style={{textDecoration:"none",color:"white"}}>
     <div className={classes.video_card}>
       <div className={classes.thumbnail}>
         <img src={props.item.videoThumbnail} alt="#" />
@@ -14,7 +16,7 @@ const SearchVideoCard = (props) => {
       </div> */}
       <div className={classes.description}>
           {<h4 className={classes.title}>{(t.trim().length>100)?t.substring(0,100)+"...":t}</h4>}
-          {<p className={classes.views}>{props.item.videoViews} • {props.item.videoAge}</p>}
+          {<p className={classes.views}>{props.item.videoViews} views • {props.item.videoAge}</p>}
         <div className={classes.details}>
           <div style={{display:'flex',alignItems:"center",gap:"1rem"}}>
           <img src={props.item.channelInfo.image} alt="#"/>
@@ -23,6 +25,7 @@ const SearchVideoCard = (props) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 export default SearchVideoCard

@@ -3,6 +3,7 @@ import { convertRawViewstoString } from "./convertRawViewsToString";
 import { parseVideoDuration } from "./parseVideoDuration";
 import { timeSince } from "./timeSince";
 export const parseRecommendedData = async (items, videoId) => {
+  // console.log(items);
   try {
     const videoIds = [];
     const channelIds = [];
@@ -14,26 +15,26 @@ export const parseRecommendedData = async (items, videoId) => {
         newItems.push(item);
       }
     });
-
-    const {items: videosData }= await axios.get(
+    // console.log(newItems);
+    const videosData = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds.join(
         ","
       )}&key=AIzaSyDiNdcxyt7GjWqKn5JKceGAMzHm9ZArKhc`
     );
-
+    console.log(videosData.data.items);
     const parsedData = [];
     newItems.forEach((item, index) => {
-      if (index >= videosData.length) return;
+      if (index >= videosData.data.items.length) return;
       if (videoId === item?.contentDetails?.upload?.videoId) return;
       parsedData.push({
         videoId: item.contentDetails.upload.videoId,
         videoTitle: item.snippet.title,
         videoThumbnail: item.snippet.thumbnails.medium.url,
         videoDuration: parseVideoDuration(
-          videosData[index].contentDetails.duration
+          videosData.data.items[index].contentDetails.duration
         ),
         videoViews: convertRawViewstoString(
-          videosData[index].statistics.viewCount
+          videosData.data.items[index].statistics.viewCount
         ),
         videoAge: timeSince(new Date(item.snippet.publishedAt)),
         channelInfo: {
@@ -42,7 +43,7 @@ export const parseRecommendedData = async (items, videoId) => {
         },
       });
     });
-
+// console.log(parsedData);
     return parsedData;
   } catch (err) {
     console.log(err);
