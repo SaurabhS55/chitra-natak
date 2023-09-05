@@ -2,11 +2,12 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 import {convertRawViewstoString} from '../../utils/convertRawViewsToString';
 import {timeSince} from '../../utils/timeSince';
+const API_KEY=import.meta.env.VITE_YOUTUBE_API_KEY;
 const getVideoDetails = createAsyncThunk(
   "youtube/videoDetails",
   async (id) => {
     const response = await axios.get(
-      `https://youtube.googleapis.com/youtube/v3/videos?key=AIzaSyDiNdcxyt7GjWqKn5JKceGAMzHm9ZArKhc&part=snippet,statistics&type=video&id=${id}`
+      `https://youtube.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet,statistics&type=video&id=${id}`
     );
 
     return parseData(response.data.items[0]);

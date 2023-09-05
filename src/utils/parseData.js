@@ -4,7 +4,7 @@ import { parseVideoDuration } from "./parseVideoDuration";
 import { timeSince } from "./timeSince";
 import { parseRecommendedData } from "./parseRecommendedData";
 const YOUTUBE_API_URL= "https://youtube.googleapis.com/youtube/v3"
-
+const API_KEY=import.meta.env.VITE_YOUTUBE_API_KEY;
 export const parseData = async (items) => {
   try {
     const videoIds = [];
@@ -19,7 +19,7 @@ export const parseData = async (items) => {
     } = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${channelIds.join(
         ","
-      )}&key=AIzaSyDiNdcxyt7GjWqKn5JKceGAMzHm9ZArKhc`
+      )}&key=${API_KEY}`
     );
 
     const parsedChannelsData = [];
@@ -35,7 +35,7 @@ export const parseData = async (items) => {
     } = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds.join(
         ","
-      )}&key=AIzaSyDiNdcxyt7GjWqKn5JKceGAMzHm9ZArKhc`
+      )}&key=${API_KEY}`
     );
 
     const parsedData = [];

@@ -2,6 +2,7 @@ import axios from "axios";
 import { convertRawViewstoString } from "./convertRawViewsToString";
 import { parseVideoDuration } from "./parseVideoDuration";
 import { timeSince } from "./timeSince";
+const API_KEY=import.meta.env.VITE_YOUTUBE_API_KEY;
 export const parseRecommendedData = async (items, videoId) => {
   // console.log(items);
   try {
@@ -19,7 +20,7 @@ export const parseRecommendedData = async (items, videoId) => {
     const videosData = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds.join(
         ","
-      )}&key=AIzaSyDiNdcxyt7GjWqKn5JKceGAMzHm9ZArKhc`
+      )}&key=${API_KEY}`
     );
     console.log(videosData.data.items);
     const parsedData = [];
