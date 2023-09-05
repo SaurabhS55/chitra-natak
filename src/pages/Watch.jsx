@@ -9,7 +9,7 @@ import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import WatchCard from "../components/home/video/WatchCard";
-import styles from "./watch.module.css"; // Import your CSS module
+import styles from "./Watch.module.css"; // Import your CSS module
 
 export default function Watch() {
   const [showMoreStatus, setShowMoreStatus] = useState(false);
