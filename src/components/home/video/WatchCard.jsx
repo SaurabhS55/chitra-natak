@@ -1,7 +1,7 @@
 import React from "react";
 // import { RecommendedVideos } from "../Types";
 import { Link } from "react-router-dom";
-import styles from "./Watchcard.module.css"; // Import your CSS module
+import styles from "./WatchCard.module.css"; // Import your CSS module
 
 export default function WatchCard(props) {
   return (
